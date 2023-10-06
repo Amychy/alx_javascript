@@ -11,8 +11,9 @@ myObject.incr = function () {
 };
 
 Object.defineProperty(myObject, 'incr', {
-  enumerable: false, // Prevent the function from being included in the output
-  value: '[Function]', // Replace the function with '[Function]' in the output
+  value: function () {
+    myObject.value++;
+  },
 });
 
 myObject.incr(); // Increment the value
