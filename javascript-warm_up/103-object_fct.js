@@ -8,12 +8,12 @@ You are not allowed to use var
 const myObject = {
   type: 'object',
   value: 12,
-  incr: function () {
-    this.value++;
-  }
 };
 
-// A function to convert the object to a string with '[Function]' for functions
+myObject.incr = function () {
+  this.value++;
+};
+
 function stringifyObject(obj) {
   let result = '{ ';
   for (const key in obj) {
@@ -29,6 +29,7 @@ function stringifyObject(obj) {
   return result;
 }
 
+console.log(stringifyObject(myObject));
 myObject.incr();
 console.log(stringifyObject(myObject));
 myObject.incr();
