@@ -7,19 +7,23 @@ You are not allowed to use var
 
 const myObject = {
   type: 'object',
-  value: 12
+  value: 12,
+  incr: function () {
+    this.value++;
+  }
 };
 
-console.log(myObject);
-
-function incr() {
-  this.value++;
+// A function to convert the object to a string with '[Function]' for functions
+function stringifyObject(obj) {
+  return JSON.stringify(obj, (_, value) =>
+    typeof value === 'function' ? '[Function]' : value
+  );
 }
 
-myObject.incr = incr;
+console.log(stringifyObject(myObject));
 myObject.incr();
-console.log(myObject);
+console.log(stringifyObject(myObject));
 myObject.incr();
-console.log(myObject);
+console.log(stringifyObject(myObject));
 myObject.incr();
-console.log(myObject);
+console.log(stringifyObject(myObject));
