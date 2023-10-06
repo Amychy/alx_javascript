@@ -1,2 +1,15 @@
 #!/usr/bin/node
-exports.add = (a, b) => a + b;
+let myObject = {
+  type: 'object',
+  value: 12
+};
+console.log(myObject);
+myObject.incr = function () {
+  myObject.value++;
+};
+myObject.incr();
+console.log(myObject);
+myObject.incr();
+console.log(myObject);
+myObject.incr();
+console.log(myObject);
