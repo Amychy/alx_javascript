@@ -15,9 +15,18 @@ const myObject = {
 
 // A function to convert the object to a string with '[Function]' for functions
 function stringifyObject(obj) {
-  return JSON.stringify(obj, (_, value) =>
-    typeof value === 'function' ? '[Function]' : value
-  );
+  let result = '{ ';
+  for (const key in obj) {
+    const value = obj[key];
+    if (typeof value === 'function') {
+      result += `${key}: [Function], `;
+    } else {
+      result += `${key}: ${JSON.stringify(value)}, `;
+    }
+  }
+  result = result.slice(0, -2); // Remove the trailing comma and space
+  result += ' }';
+  return result;
 }
 
 console.log(stringifyObject(myObject));
