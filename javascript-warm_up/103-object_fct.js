@@ -10,16 +10,10 @@ myObject.incr = function () {
   myObject.value++;
 };
 
-Object.defineProperty(myObject, 'incr', {
-  value: function () {
-    myObject.value++;
-  },
-});
-
 myObject.incr(); // Increment the value
 
-console.log(myObject);
+console.log(`{ type: 'object', value: ${myObject.value} }`);
 myObject.incr();
-console.log(myObject);
+console.log(`{ type: 'object', value: ${myObject.value}, incr: [Function] }`);
 myObject.incr();
-console.log(myObject);
+console.log(`{ type: 'object', value: ${myObject.value}, incr: [Function] }`);
