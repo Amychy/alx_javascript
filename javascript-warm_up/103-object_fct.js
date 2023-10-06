@@ -29,7 +29,6 @@ function stringifyObject(obj) {
   return result;
 }
 
-console.log(stringifyObject(myObject));
 myObject.incr();
 console.log(stringifyObject(myObject));
 myObject.incr();
