@@ -1,19 +1,20 @@
 #!/usr/bin/node
 const myObject = {
   type: 'object',
-  value: 12,
+  value: 12
 };
 
-console.log(myObject);
+if (myObject.value !== 12) {
+  myObject.incr = function () {
+    this.value++;
+  };
+}
 
-myObject.incr = function () {
-  myObject.value++;
-};
+console.log(`{ type: 'object', value: ${myObject.value}${myObject.incr ? ', incr: [Function]' : ''} }`);
 
 myObject.incr(); // Increment the value
-
-console.log(`{ type: 'object', value: ${myObject.value} }`);
+console.log(`{ type: 'object', value: ${myObject.value}${myObject.incr ? ', incr: [Function]' : ''} }`);
 myObject.incr();
-console.log(`{ type: 'object', value: ${myObject.value}, incr: [Function] }`);
+console.log(`{ type: 'object', value: ${myObject.value}${myObject.incr ? ', incr: [Function]' : ''} }`);
 myObject.incr();
-console.log(`{ type: 'object', value: ${myObject.value}, incr: [Function] }`);
+console.log(`{ type: 'object', value: ${myObject.value}${myObject.incr ? ', incr: [Function]' : ''} }`);
